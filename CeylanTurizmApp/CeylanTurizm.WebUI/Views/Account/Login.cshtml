@@ -1,0 +1,18 @@
+﻿@model LoginModel
+<section class="book-form" id="book-form" style="margin-top:200px !important;">
+
+    <form asp-action="Login" asp-controller="Account">
+        <input type="hidden" name="returnUrl" value="@Model.ReturnUrl" />
+        <div data-aos="zoom-in" data-aos-delay="300" class="inputBox">
+            <span class="ms-5">User Name</span>
+            <input type="text" asp-for="UserName" placeholder="Kullanıcı Adınızı Giriniz...">
+        </div>
+        <div data-aos="zoom-in" data-aos-delay="300" class="inputBox">
+            <span class="ms-5">Password</span>
+            <input type="password" asp-for="Password" placeholder="Şifrenizi Giriniz...">
+        </div>
+        <input data-aos="zoom-in" data-aos-delay="600" type="submit" value="Giriş" class="btn" />
+        <button data-aos="zoom-in" data-aos-delay="600" asp-controller="Account" asp-action="Register"  class="btn" >Uye Ol</button>
+    </form>
+
+</section>

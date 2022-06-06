@@ -1,0 +1,12 @@
+﻿.container-admin {
+    width: 80%;
+    margin: auto;
+    margin-top: 150px;
+    font-size: 12pt;
+}
+
+#biletdiv {
+    font-size: 12pt;
+    text-align: center;
+    line-height: 50px;
+}

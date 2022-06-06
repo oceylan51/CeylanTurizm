@@ -1,0 +1,216 @@
+﻿@model ExpeditionandTicketSalesViewModel
+@{ if (ViewBag.Result == 1)
+    {
+        <div class="container-admin">
+            <div class="sefer-main-top">
+                <div class="sefer-main-top-top">
+                    <div class="sefer-main-top-top-left">
+                        <div>Gidiş</div>
+                    </div>
+                    <div class="sefer-main-top-top-right">
+                        <div class="w-25 d-flex justify-content-around align-items-center">
+                            @for (int i = 0; i < 1; i++)
+                            {
+                                <span>@Model.expeditions[i].ExpeditionStart</span><i class="fa-solid fa-right-long"></i><span>@Model.expeditions[i].ExpeditionFinish</span>
+                            }
+                        </div>
+                    </div>
+                </div>
+                <div class="sefer-main-top-bottom ps-5">
+                    @for (int i = 0; i < 1; i++)
+                    {
+                        string a = Model.expeditions[0].ExpeditionDate.Substring(8, 2) + " " + Model.expeditions[i].ExpeditionDate.Substring(5, 2) + " " + Model.expeditions[i].ExpeditionDate.Substring(0, 4);
+                        <h1>@a</h1>
+                    }
+                </div>
+            </div>
+            @{
+                foreach (var item in Model.expeditions)
+                {
+
+                    <div class="row w-100 justify-content-between mt-3 align-items-center ">
+                        <div class="col-md-3">
+                            <div class="sefer-left w-100">
+                                <div class="sefer-baslangıc">
+                                    @item.ExpeditionHour
+                                </div>
+                                <div class="sefer-sure">
+                                    <i class="fa-regular fa-clock"></i> 7 Saat 30 Dakika
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-7 justify-content-between">
+                            <div class="row">
+                                <div class="col-sm-2 justify-content-center d-flex">
+                                    <div class="tip text-white">
+                                        2 + 1
+                                    </div>
+                                </div>
+                                <div class="col-sm-7 justify-content-center d-flex">
+                                    <div class="ozellikler text-white">
+                                        <i class="fa-solid fa-hand-holding-droplet"></i>
+                                        <i class="fa-solid fa-tv"></i>
+                                        <i class="fa-solid fa-wifi"></i>
+                                        <i class="fa-solid fa-plug"></i>
+                                        <i class="fa-brands fa-android"></i>
+                                        <i class="fa-brands fa-usb"></i>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3 justify-content-center d-flex">
+                                    <div class="ucret text-white">
+                                        @item.ExpeditionPrice <i class="fa-solid fa-turkish-lira-sign"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="sefer-right w-100 ">
+                                <button type="submit" id="sefer-btn" class="sefer-sec-btn m-auto">
+                                    <i class="fa-solid fa-angle-down"></i>     Sefer Seç
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="oturma-duzeni d-none">
+                        <div class="koltuklar pb-3">
+
+                            <div class="ikili-koltuklar mt-2">
+                                <div>
+                                    @{
+                                        string a = "";
+                                        for (int i = 3; i <= int.Parse(item.Bus.BusSeatingCapacity.ToString()); i = i + 3)
+                                        {
+                                            foreach (var seat in Model.ticketSales)
+                                            {
+                                                if (seat.ExpeditionId == item.ExpeditionId && seat.SeatNumber == i)
+                                                {
+                                                    a = "bg-danger";
+                                                    break;
+                                                }
+                                                else
+                                                {
+                                                    a = " ";
+                                                }
+                                            }
+                                            <div class="koltuk @a ">@i</div>
+                                        }
+                                    }
+                                </div>
+                                <div class="mt-2">
+                                    @{
+                                        for (int i = 2; i < int.Parse(item.Bus.BusSeatingCapacity.ToString()); i = i + 3)
+                                        {
+                                            foreach (var seat in Model.ticketSales)
+                                            {
+                                                if (seat.ExpeditionId == item.ExpeditionId && seat.SeatNumber == i)
+                                                {
+                                                    a = "bg-danger";
+                                                    break;
+                                                }
+                                                else
+                                                {
+                                                    a = " ";
+                                                }
+                                            }
+                                            <div class="koltuk @a ">@i</div>
+                                        }
+                                    }
+                                </div>
+                            </div>
+                            <div class="tekli-koltuklar">
+                                @{
+                                    for (int i = 1; i < int.Parse(item.Bus.BusSeatingCapacity.ToString()); i = i + 3)
+                                    {
+                                        foreach (var seat in Model.ticketSales)
+                                        {
+                                            if (seat.ExpeditionId == item.ExpeditionId && seat.SeatNumber == i)
+                                            {
+                                                a = "bg-danger";
+
+                                                break;
+                                            }
+                                            else
+                                            {
+                                                a = " ";
+                                            }
+                                        }
+                                        <div class="koltuk @a ">@i</div>
+                                    }
+                                }
+                            </div>
+
+                            <form asp-controller="Home" asp-action="TicketSales" method="post">
+                                <div>
+                                    @if (User.Identity.IsAuthenticated)
+                                    {
+                                        <div class="row d-flex  mt-3">
+                                            <div class="col-md-6">
+                                                <div data-aos="zoom-in" data-aos-delay="150" class="inputBox">
+                                                    <span>Ad</span>
+                                                    <input asp-for="TicketSalesModel.customerName" placeholder="Adınızı Giriniz" value="@Model.User.FirstName" />
+                                                </div>
+                                                <div data-aos="zoom-in" data-aos-delay="450" class="inputBox">
+                                                    <span>Soyad</span>
+                                                    <input asp-for="TicketSalesModel.customerSurname" placeholder="Syadınızı Giriniz" value="@Model.User.LastName" />
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div data-aos="zoom-in" data-aos-delay="300" class="inputBox">
+                                                    <span>Telefon</span>
+                                                    <input type="text" asp-for="TicketSalesModel.customerTelNo" placeholder="Adınızı Giriniz" value="@Model.User.PhoneNumber">
+                                                </div>
+                                                <div data-aos="zoom-in" data-aos-delay="300" class="inputBox">
+                                                    <span>Tc No</span>
+                                                    <input type="text" asp-for="TicketSalesModel.customerTelNo" placeholder="Adınızı Giriniz" value="@Model.User.IdentityNumber">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <div class="row d-flex  mt-3">
+                                            <div class="col-md-6">
+                                                <div data-aos="zoom-in" data-aos-delay="150" class="inputBox">
+                                                    <span>Ad</span>
+                                                    <input asp-for="TicketSalesModel.customerName" placeholder="Adınızı Giriniz" />
+                                                </div>
+                                                <div data-aos="zoom-in" data-aos-delay="450" class="inputBox">
+                                                    <span>Soyad</span>
+                                                    <input asp-for="TicketSalesModel.customerSurname" placeholder="Soyadınızı Giriniz" />
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div data-aos="zoom-in" data-aos-delay="300" class="inputBox">
+                                                    <span>Telefon</span>
+                                                    <input type="text" asp-for="TicketSalesModel.customerTelNo" placeholder="Telefon Numaranızı Giriniz">
+                                                </div>
+                                                <div data-aos="zoom-in" data-aos-delay="300" class="inputBox">
+                                                    <span>Tc No</span>
+                                                    <input type="text" asp-for="TicketSalesModel.customerTcNo" placeholder="Tc No Giriniz">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                    <div class="d-flex w-100 mt-4 justify-content-around">
+                                        <label class="form-control w-50" id="biletdiv">Satın alacağınız koltuğu üzerine tıklayınız</label>
+                                        <input type="hidden" id="seatNumber" asp-for="TicketSalesModel.SeatNumber" value="" />
+                                        <input id="expedition" asp-for="TicketSalesModel.ExpeditionId" type="hidden" value="@item.ExpeditionId" />
+                                        <button type="submit" class="btn btn-sm btn-outline-success w-25">Satın Al</button>
+                                    </div>
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+    }
+    else
+    {
+        <h5 style="margin-top:200px !important ; color:red; margin:auto;" class="display-4">Böyle bir seferimiz yoktur</h5>
+    }
+}

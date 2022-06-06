@@ -1,0 +1,266 @@
+﻿@model Sales
+<section class="home" id="home">
+
+    <div class="content">
+        <span data-aos="fade-up" data-aos-delay="150">Ceylan Turizm</span>
+        <p data-aos="fade-up" data-aos-delay="450">Sizi Sevdiklerinize Kavuşturuyoruz</p>
+
+    </div>
+
+</section>
+
+<!-- home section ends -->
+<!-- booking form section starts  -->
+
+<section class="book-form" id="book-form">
+
+    <form asp-action="ExpeditionList" asp-controller="Home">
+        <div data-aos="zoom-in" data-aos-delay="150" class="inputBox">
+            <span>Nereden</span>
+            <select asp-for="cityStart" asp-items="ViewBag.Cities"></select>
+        </div>
+        <div data-aos="zoom-in" data-aos-delay="450" class="inputBox">
+            <span>Nereye</span>
+            <select asp-for="cityFinish" asp-items="ViewBag.Cities"></select>
+        </div>
+        <div data-aos="zoom-in" data-aos-delay="300" class="inputBox">
+            <span>Tarih</span>
+            <input type="date" asp-for="date">
+        </div>
+        <input data-aos="zoom-in" data-aos-delay="600" type="submit" value="Bilet Bul" class="btn">
+    </form>
+
+</section>
+
+<!-- booking form section ends -->
+<!-- about section starts  -->
+
+<section class="about" id="about">
+
+    <div class="video-container" data-aos="fade-right" data-aos-delay="300">
+        <video src="images/about-vid-1.mp4" muted autoplay loop class="video"></video>
+        <div class="controls">
+            <span class="control-btn" data-src="images/about-vid-1.mp4"></span>
+            <span class="control-btn" data-src="images/about-vid-2.mp4"></span>
+            <span class="control-btn" data-src="images/about-vid-3.mp4"></span>
+        </div>
+    </div>
+
+    <div class="content" data-aos="fade-left" data-aos-delay="600">
+        <span>Neden Bizi Seçmelisiniz</span>
+        <h3>Doğanın İhtişamı Sizi Bekliyor</h3>
+        <p>Türkiyenin en güzel yerleri sizi bekliyor</p>
+        <a href="#" class="btn">Şimdi bilet bul</a>
+    </div>
+
+</section>
+
+<!-- about section ends -->
+<!-- destination section starts  -->
+
+<section class="destination" id="destination">
+
+    <div class="heading">
+        <span>Hedefimiz</span>
+        <h1>Hedefinizi Yapın</h1>
+    </div>
+
+    <div class="box-container">
+
+        <div class="box" data-aos="fade-up" data-aos-delay="150">
+            <div class="image">
+                <img src="images/nigde.jpg" alt="">
+            </div>
+            <div class="content">
+                <h3>Niğde</h3>
+                <p>Osmanlıdan kalan tarihi eserleri bulabileceğiniz Bir Şehir</p>
+                <a href="/City/Niğde">Biletini Al<i class="fas fa-angle-right"></i></a>
+            </div>
+        </div>
+
+        <div class="box" data-aos="fade-up" data-aos-delay="300">
+            <div class="image">
+                <img src="~/images/ankara.jpg" alt="">
+            </div>
+            <div class="content">
+                <h3>Ankara</h3>
+                <p>Anadolu’nun kalbinin attığı başkent Ankara, her adımınızda sizi tarihle buluşturuyor.</p>
+                <a href="/City/Ankara">Biletini Al <i class="fas fa-angle-right"></i></a>
+            </div>
+        </div>
+
+        <div class="box" data-aos="fade-up" data-aos-delay="450">
+            <div class="image">
+                <img src="~/images/antalya.jpg" alt="">
+            </div>
+            <div class="content">
+                <h3>Antalya</h3>
+                <p>
+                    Kıyısında yeşilin maviyle buluştuğu, sadece Türkiye’nin ve Akdeniz’in değil, tüm dünyanın
+                    gözbebeği…
+                </p>
+                <a href="/City/Antalya">Biletini Al<i class="fas fa-angle-right"></i></a>
+            </div>
+        </div>
+
+        <div class="box" data-aos="fade-up" data-aos-delay="600">
+            <div class="image">
+                <img src="images/aydın.jpg" alt="">
+            </div>
+            <div class="content">
+                <h3>Aydın</h3>
+                <p>M.Ö. 13. yüzyıla uzanan tarihi bir geçmişe sahip olan Efeler diyarı Aydın.</p>
+                <a href="/City/Aydın">Biletini Al <i class="fas fa-angle-right"></i></a>
+            </div>
+        </div>
+
+        <div class="box" data-aos="fade-up" data-aos-delay="750">
+            <div class="image">
+                <img src="images/istanbul.jpg" alt="">
+            </div>
+            <div class="content">
+                <h3>Istanbul</h3>
+                <p>
+                    Tarihi ve kültürel dokusuyla, dünyada eşi benzeri bulunmayan, Avrupa ile Asya arasında köprü
+                    olan, geçtiğiniz her noktada tarih kokar.
+                </p>
+                <a href="/City/Istanbul">Biletini Al <i class="fas fa-angle-right"></i></a>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<!-- destination section ends -->
+<!-- services section starts  -->
+
+<section class="services" id="services">
+
+    <div class="heading">
+        <h1>
+            Hizmetleriiz
+        </h1>
+    </div>
+
+    <div class="box-container">
+
+        <div class="box" data-aos="zoom-in-up" data-aos-delay="150">
+            <i class="fa-solid fa-wifi"></i>
+            <h3>WiFi</h3>
+            <p>
+                Tüm otobüslerimizde bulunan Wifi hizmeti ile yolculuk boyunca
+                internet imkanı
+            </p>
+        </div>
+
+        <div class="box" data-aos="zoom-in-up" data-aos-delay="300">
+            <i class="fa-solid fa-plug"></i>
+            <h3>Priz</h3>
+            <p>
+                Tüm otobüslerimizde bulunan 220 Volt priz ile
+                yolculuk
+                boyunca cihazlarınızı şarjı bitmeden kullanabilirsiniz
+            </p>
+        </div>
+
+        <div class="box" data-aos="zoom-in-up" data-aos-delay="450">
+            <i class="fa-solid fa-tv"></i>
+            <h3>Tv</h3>
+            <p>
+                10" HD Ekran ile film, canlı TV izleyebilme ve internete
+                erişim
+                sağlayabilme imkanı.
+            </p>
+        </div>
+
+        <div class="box" data-aos="zoom-in-up" data-aos-delay="600">
+            <i class="fa-solid fa-hand-holding-droplet"></i>
+            <h3>Yemek</h3>
+            <p>
+                Tüm seferlerimizde açık büfe ikram servisimiz
+                bulunmaktadır.
+            </p>
+        </div>
+
+
+        <div class="box" data-aos="zoom-in-up" data-aos-delay="900">
+            <i class="fas fa-headset"></i>
+            <h3>7/24 Destek</h3>
+            <p>Şikayet, öneri , istekler ve sorunlarınız için günün 24 saati ulaşabilirsiniz</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- services section ends -->
+<!-- gallery section starts  -->
+
+<section class="gallery" id="gallery">
+
+    <div class="heading">
+        <h1>Yeni Hedeflerimiz</h1>
+    </div>
+
+    <div class="box-container">
+
+        <div class="box" data-aos="zoom-in-up" data-aos-delay="150">
+            <img src="images/gallery-img-1.jpg" alt="">
+            <span>travel spot</span>
+            <h3>iceland</h3>
+        </div>
+
+        <div class="box" data-aos="zoom-in-up" data-aos-delay="300">
+            <img src="images/gallery-img-2.jpg" alt="">
+            <span>travel spot</span>
+            <h3>greenland</h3>
+        </div>
+
+        <div class="box" data-aos="zoom-in-up" data-aos-delay="450">
+            <img src="images/gallery-img-3.jpg" alt="">
+            <span>travel spot</span>
+            <h3>alaska</h3>
+        </div>
+
+        <div class="box" data-aos="zoom-in-up" data-aos-delay="150">
+            <img src="images/gallery-img-4.jpg" alt="">
+            <span>travel spot</span>
+            <h3>thailand</h3>
+        </div>
+
+        <div class="box" data-aos="zoom-in-up" data-aos-delay="300">
+            <img src="images/gallery-img-5.jpg" alt="">
+            <span>travel spot</span>
+            <h3>brazil</h3>
+        </div>
+
+        <div class="box" data-aos="zoom-in-up" data-aos-delay="450">
+            <img src="images/gallery-img-6.jpg" alt="">
+            <span>travel spot</span>
+            <h3>maldive</h3>
+        </div>
+
+        <div class="box" data-aos="zoom-in-up" data-aos-delay="150">
+            <img src="images/gallery-img-7.jpg" alt="">
+            <span>travel spot</span>
+            <h3>iceland</h3>
+        </div>
+
+        <div class="box" data-aos="zoom-in-up" data-aos-delay="300">
+            <img src="images/gallery-img-8.jpg" alt="">
+            <span>travel spot</span>
+            <h3>alaska</h3>
+        </div>
+
+        <div class="box" data-aos="zoom-in-up" data-aos-delay="450">
+            <img src="images/gallery-img-9.jpg" alt="">
+            <span>travel spot</span>
+            <h3>maldive</h3>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- gallery section ends -->
+<!-- review section starts  -->

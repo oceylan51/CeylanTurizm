@@ -1,0 +1,40 @@
+﻿@{
+    Layout = "_osmanLayout";
+}
+@model List<Expedition>
+
+@if (Model.Count == 0)
+{
+    <h2>Giridiğiniz Kritere Ait Bir Sefer Yoktur</h2>
+    <a asp-controller="Admin" asp-action="TicketSalesIndex">Back To Search</a>
+}
+else
+{
+    <div class="container-admin p-3">
+        <h5 class="display-4">Expedition List</h5>
+        <hr />
+        <table class="table table-sm table-dark">
+            <tr>
+                <td>Start</td>
+                <td>Station</td>
+                <td>Finish</td>
+                <td>Date</td>
+                <td>Price</td>
+                <td>Actions</td>
+            </tr>
+            @foreach (var exp in Model)
+            {
+                <tr>
+                    <td>@exp.ExpeditionStart</td>
+                    <td>@exp.ExpeditionStation</td>
+                    <td>@exp.ExpeditionFinish</td>
+                    <td>@exp.ExpeditionDate</td>
+                    <td>@exp.ExpeditionPrice</td>
+                    <td>
+                        <a asp-controller="Admin" asp-action="TicketsInformation" asp-route-id="@exp.ExpeditionId" class="btn btn-sm btn-warning">Ticket Information</a>
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+}

@@ -1,0 +1,38 @@
+﻿@{
+    Layout = "_osmanLayout";
+}
+
+@model TicketSales
+<div class="container-admin mt-2">
+    <h5 class="display-4">Ticket Edit</h5>
+    <hr />
+    <form asp-controller="Admin" asp-action="TicketEdit" method="post">
+        <div class="row d-flex justify-content-around w-100 text-center">
+            <div class="col-md-2">
+                <label asp-for="SeatNumber">Seat Number</label>
+                <input asp-for="SeatNumber" class="form-control text-center" />
+            </div>
+            <div class="col-md-2">
+                <label asp-for="customerName">Name</label>
+                <input asp-for="customerName" class="form-control text-center" />
+            </div>
+            <div class="col-md-2">
+                <label asp-for="customerSurname">Surname</label>
+                <input asp-for="customerSurname" class="form-control text-center" />
+            </div>
+            <div class="col-md-2">
+                <label asp-for="customerTelNo">Tel No</label>
+                <input asp-for="customerTelNo" class="form-control text-center" />
+            </div>
+            <div class="col-md-2">
+                <label asp-for="customerTcNo">Tc No</label>
+                <input asp-for="customerTcNo" class="form-control text-center" />
+            </div>
+            <div class="col-md-2">
+                <input type="hidden" asp-for="TicketSalesId" value="@Model.TicketSalesId" />
+                <input type="hidden" asp-for="ExpeditionId" value="@Model.ExpeditionId" />
+                <button type="submit" class="btn btn-sm btn-primary mt-4">Save Changes</button>
+            </div>
+        </div>
+    </form>
+</div>

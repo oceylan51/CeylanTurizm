@@ -1,0 +1,56 @@
+﻿
+@{
+    Layout = "_osmanLayout";
+}
+@model Expedition
+<form asp-controller="Admin" asp-action="ExpeditionListByTicket" method="post">
+    <div class="m-auto w-50 bg-info">
+        <div class="row w-100 p-4 m-auto">
+            <div class="offset-md-3 col-md-6">
+                <div class="row">
+                    <div class="col-md-4">
+                        <label class="text-danger mt-2">Search By Id</label>
+                    </div>
+                    <div class="col-md-6">
+                        <input type="text" asp-for="ExpeditionId" class="form-control" />
+                    </div>
+                    <div class="col-md-2">
+                        <button class="btn btn-sm btn-success mt-1">Search</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row w-100 p-4 m-auto">
+            <div class="offset-md-3 col-md-6">
+                <div class="row">
+                    <div class="col-md-4">
+                        <label class="text-danger mt-2">Search By Date</label>
+                    </div>
+                    <div class="col-md-6">
+                        <input type="date" asp-for="ExpeditionDate" class="form-control" />
+                    </div>
+                    <div class="col-md-2">
+                        <button class="btn btn-sm btn-success mt-1">Search</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row w-100 p-4 m-auto">
+            <div class="offset-md-3 col-md-6">
+                <div class="row">
+                    <div class="col-md-4">
+                        <label class="text-danger mt-2">Search By BusId</label>
+                    </div>
+                    <div class="col-md-6">
+                        <input type="text" asp-for="BusId" class="form-control" />
+                    </div>
+                    <div class="col-md-2">
+                        <button class="btn btn-sm btn-success mt-1">Search</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</form>

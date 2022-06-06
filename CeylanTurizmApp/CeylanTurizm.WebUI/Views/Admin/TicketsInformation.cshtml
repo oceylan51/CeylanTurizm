@@ -1,0 +1,45 @@
+﻿@{
+    Layout = "_osmanLayout";
+}
+@model List<TicketSales>
+@section Css{
+    <link href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css" rel="stylesheet" />
+}
+@section Scripts {
+    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#TicketSales').DataTable();
+        });
+    </script>
+}
+<h6 class="display-4">List Of Purchased Tickets</h6>
+<hr />
+<table class="table table-sm table-dark" id="TicketSales">
+    <tr>
+        <td>Id</td>
+        <td>Expedition Id</td>
+        <td>Seat Number</td>
+        <td>Name</td>
+        <td>Surname</td>
+        <td>Tel No</td>
+        <td>Tc No</td>
+        <td>Actions</td>
+    </tr>
+    @foreach (var ticket in Model)
+    {
+        <tr>
+            <td>@ticket.TicketSalesId</td>
+            <td>@ticket.ExpeditionId</td>
+            <td>@ticket.SeatNumber</td>
+            <td>@ticket.customerName</td>
+            <td>@ticket.customerSurname</td>
+            <td>@ticket.customerTelNo</td>
+            <td>@ticket.customerTcNo</td>
+            <td>
+                <a asp-controller="Admin" asp-action="TicketEdit" asp-route-id="@ticket.TicketSalesId" class="btn btn-sm btn-warning">Edit</a>
+                <a asp-controller="Admin" asp-action="TicketDelete" asp-route-id="@ticket.TicketSalesId" class="btn btn-sm btn-danger">Delete</a>
+            </td>
+        </tr>
+    }
+</table>
