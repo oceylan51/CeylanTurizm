@@ -24,7 +24,7 @@
                     <td>@bus.BusSeatingCapacity</td>
                     <td>
                         <a asp-controller="Admin" asp-action="BusEdit" asp-route-id="@bus.BusId" class="btn btn-sm btn-warning">Edit</a>
-                        <a asp-controller="Admin" asp-action="BusDelete" asp-route-id="@bus.BusId" class="btn btn-sm btn-danger">Delete</a>
+                        <a href="https://Localhost:44310/api/Home/@bus.BusId" class="btn btn-sm btn-danger">Delete</a>
                     </td>
                 </tr>
             }

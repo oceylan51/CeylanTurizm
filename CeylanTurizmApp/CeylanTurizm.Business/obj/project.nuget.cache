@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Iw7ni+ZsDy9zIFRKIShUPCDo9h9WP1pHbVOqWMKgD+kL08TfDM1wOqzGwHfxgHG9hk81QdgY9rlEnM2enHt9DA==",
+  "dgSpecHash": "aCNR5WxeWhYYqwU2lyys5MDKqVUcgysJ8yBgRiDQN056CF9vVPLcGFkhXSBCP1WXEY4eP8D91U01brfFrFQ7DQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\osman\\Desktop\\Dersler\\CeylanTurizmApp\\CeylanTurizm.Business\\CeylanTurizm.Business.csproj",
+  "projectFilePath": "C:\\Users\\osman\\Desktop\\CeylanTurizm\\CeylanTurizmApp\\CeylanTurizm.Business\\CeylanTurizm.Business.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\osman\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\osman\\.nuget\\packages\\microsoft.data.sqlclient\\2.0.1\\microsoft.data.sqlclient.2.0.1.nupkg.sha512",
